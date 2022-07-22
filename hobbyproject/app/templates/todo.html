@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'assets/css/todo.css' %}">
+  <section id="todo" class="">
+    <div class="todo-container" data-aos="fade-in">
+      {% if user.is_authenticated %}
+        <ul class="list-group mx-5 p-5">
+          {% for post in posts %}
+            <li class="list-group-item">{{ post.content }}</li>
+          {% endfor %}
+          <form action="" class="list-group-item p-0" method="POST">
+            {% csrf_token %}
+            <div class="input-group">
+              <span class="input-group-text border-dark" id="basic-addon1"><img src="{% static 'assets/img/plus-lg.svg'%}" alt=""></span>
+              <input type="text" class="form-control py-2 border-dark" placeholder="Add to do" aria-label="Username" aria-describedby="basic-addon1" name="todo" autofocus="autofocus">
+            </div>
+          </form>
+        </ul>
+        {% else%}
+        <div class="need-login d-flex flex-column align-items-center justify-content-center my-5 py-5">
+          <span class="pb-5 mb-5 fs-5 fw-bolder">로그인 후 이용해주세요!</span>
+          <div class="d-grid gap-2 w-50">
+            <a href="{% url 'login' %}" class='btn btn-outline-primary'>로그인</a>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </section>
+{% endblock %}

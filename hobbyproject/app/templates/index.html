@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'assets/css/home.css' %}">
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+    <div class="hero-container" data-aos="fade-in">
+      {% if user.last_name %}
+        <h1>{{ user.last_name }}
+          {{ user.first_name }}</h1>
+      {% else %}
+        <h1>{{ user.username }}</h1>
+      {% endif %}
+      {% if user.is_authenticated %}
+        <p>
+          <span class="typed" data-typed-items="환영합니다., 당신의 일상을 기록하세요!"></span></p>
+      {% else %}
+        <a href="{% url 'login' %}">
+          <p>
+            <span class="typed" data-typed-items="로그인 후 이용해주세요,"></span></p>
+        </a>
+      {% endif %}
+    </div>
+
+  </section>
+  <!-- End Hero -->
+{% endblock %}

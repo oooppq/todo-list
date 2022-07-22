@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'assets/css/login.css' %}">
+  <section id="login" class="d-flex flex-column justify-content-center align-items-center">
+    <div class="login-form-container d-flex justify-content-center" data-aos="fade-in">
+      <div class="form-container d-flex  flex-column justify-content-center align-items-center">
+        <h1 class="mb-5">LOGIN</h1>
+        <form action="" class="w-50 mt-5" method="POST">
+          {% csrf_token %}
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Username</span>
+            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" name="username">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Password</span>
+            <input type="password" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1" name="password">
+          </div>
+          <input type="submit" class="form-control" value="로그인">
+        </form>
+        <a class="mt-5" href="{% url 'register' %}">가입하기</a>
+      </div>
+    </div>
+  </section>
+{% endblock %}

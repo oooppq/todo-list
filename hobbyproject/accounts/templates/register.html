@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'assets/css/login.css' %}">
+  <section id="login" class="d-flex flex-column justify-content-center align-items-center">
+    <div class="login-form-container d-flex justify-content-center" data-aos="fade-in">
+      <div class="form-container d-flex  flex-column justify-content-center align-items-center">
+        <h1 class="mb-5">REGISTER</h1>
+        <form action="" class="w-50 mt-5" method="POST">
+          {% csrf_token %}
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Username</span>
+            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" name="username">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Password
+            </span>
+            <input type="password" class="form-control" placeholder="Password" aria-label="password" aria-describedby="basic-addon1" name="password">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Confirm Password</span>
+            <input type="password" class="form-control" placeholder="Confirm Password" aria-label="password2" aria-describedby="basic-addon1" name="password2">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">성</span>
+            <input type="text" class="form-control" placeholder="Last Name" aria-label="last-name" aria-describedby="basic-addon1" name="lastName">
+            <span class="input-group-text" id="basic-addon1">이름</span>
+            <input type="text" class="form-control" placeholder="First name" aria-label="first-name" aria-describedby="basic-addon1" name="firstName">
+          </div>
+          <input type="submit" class="form-control" value="가입하기">
+        </form>
+      </div>
+    </div>
+  </section>
+{% endblock %}
