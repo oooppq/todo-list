@@ -30,3 +30,8 @@ def detail(request, id):
     user = get_object_or_404(User, pk=id)
     posts = Post.objects.filter(user=user)
     return render(request, 'user-detail.html', {'posts':posts})
+
+def delete(request, id):
+    post = get_object_or_404(Post, pk=id)
+    post.delete()
+    return None# return redirect('todo')

@@ -7,7 +7,18 @@
       {% if user.is_authenticated %}
         <ul class="list-group mx-5 p-5">
           {% for post in posts %}
-            <li class="list-group-item">{{ post.content }}</li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span class="me-auto">{{ post.content }}</span>
+
+              <button type="button" class='btn py-0' aria-label="Close">
+                <img class="todo-done bg-success rounded-circle" src="{% static 'assets/img/check-circle.svg' %}" alt="">
+              </button>
+              <a href="{% url 'delete' post.id %}">
+                <button type="button" class='btn py-0' aria-label="Close">
+                  <img class="bg-danger rounded-circle" src="{% static 'assets/img/x-circle.svg' %}" alt="">
+                </button>
+              </a>
+            </li>
           {% endfor %}
           <form action="" class="list-group-item p-0" method="POST">
             {% csrf_token %}
@@ -27,4 +38,5 @@
       {% endif %}
     </div>
   </section>
+  <script src="{% static 'assets/js/test.js' %}"></script>
 {% endblock %}
