@@ -26,7 +26,9 @@ urlpatterns = [
     path('register', a_views.register, name='register'),
     
     path('todo/', views.todo, name='todo'),
+    path('modify/<int:id>', views.modify, name='modify'),
     path('delete/<int:id>', views.delete, name='delete'),
+    path('done/<int:id>', views.done, name='done'),
     path('others/', views.others, name='others'),
     path('detail/<int:id>', views.detail, name='detail'),
 ]

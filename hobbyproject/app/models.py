@@ -6,8 +6,9 @@ class Post(models.Model):
     content = models.TextField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     time = models.DateTimeField(null=True)
-    # from_time = models.DateTimeField(null=True)
-    # to_time = models.DateTimeField(null=True)
+    done = models.BooleanField(default=False)
+    start_time = models.DateTimeField(null=True)
+    end_time = models.DateTimeField(null=True)
     
     def __str__(self):
         return self.content
